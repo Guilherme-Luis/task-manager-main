@@ -1,0 +1,922 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
+
+/* Dando reset no estilo */
+* {
+  box-sizing: border-box;
+}
+
+body, h1, h2, ul, ul, p, dd, dt, dl {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* Global */
+
+:root {
+  --bg: #F2F6FF;
+  --principal: #267FFF;
+
+  --ok: #15CE9A;
+  --error: #E93F66;
+  --alert: #FFC866;
+
+  --texto: #30507D;
+  --sub: #C0CAD7;
+
+  --regular: 400;
+  --semi-bold: 500;
+  --bold: 700;
+  --black: 900;
+}
+
+/* Variáveis para o modo escuro */
+.dark-mode {
+  --bg: #121212; /* Cor de fundo escuro */
+  --principal: #1e88e5; /* Cor principal */
+  --ok: #15CE9A; /* Cor ok */
+  --error: #E93F66; /* Cor de erro */
+  --alert: #FFC866; /* Cor de alerta */
+  --texto: #ffffff; /* Cor do texto */
+  --sub: #c0cad7; /* Cor secundária */
+}
+
+body {
+  background-color: var(--bg);
+  font-family: 'Roboto', sans-serif;
+  color: var(--texto);
+  font-weight: var(--regular);
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: var(--bold);
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: var(--semi-bold);
+}
+
+h3 {
+  font-size: 14px;
+  font-weight: var(--semi-bold);
+}
+
+a {
+  text-decoration: none;
+  color: var(--texto);
+  line-height: 1;
+}
+
+.txt-1 {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.txt-2{
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.riscado {
+  text-decoration: line-through;
+}
+
+h1 span {
+  font-weight: var(--bold);
+  color: var(--principal);
+}
+
+button {
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+input {
+  background-color: white;
+  color: var(--texto);
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+
+  border: 1px solid var(--sub);
+  border-radius: 6px;
+
+  box-sizing: border-box;
+  outline: none;
+
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: var(--principal);
+}
+
+.btn {
+  margin-top: 10px;
+  padding: 16px 0px;
+  
+  width: 100%;
+  height: 50px;
+  
+  background-color: var(--principal);
+  border-radius: 6px;
+
+  color: white;
+  font-size: 14px;
+}
+
+.btn:hover {
+  opacity: 0.8;
+} 
+
+.btn-ghost {
+  width: 100%;
+  margin-top: 10px;
+  padding: 16px 0px;
+  
+  background-color:white;
+  border: 1px solid var(--principal);
+  border-radius: 6px;
+
+  color: var(--principal);
+  font-size: 14px;
+  font-weight: var(--semi-bold);
+}
+
+.hidden {
+  display: none;
+  overflow: hidden;
+  opacity: 0;
+}
+
+
+/* Dashboard */
+/* Header */
+#dashboard {  
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+}
+
+#dashboard header {
+  position: absolute;
+  top: 0;
+
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+
+  width: 100%;
+  height: 60px;
+
+  background-color: white;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, .12);
+  border-radius: 0px 0px 15px 15px;
+
+  z-index: 2;
+}
+
+#dashboard header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  padding: 0;
+
+  grid-column: 2/3;
+}
+
+#dashboard header .container .logotipo {  
+  display: flex;
+  align-items: center;
+
+  color: white;
+}
+
+#dashboard header .container .logotipo .icone {
+  position: relative;
+  margin-right: 10px;
+
+  height: 30px;
+  width: 30px;
+
+  background-color: var(--principal);
+  border-radius: 50%;
+}
+
+#dashboard header .container .logotipo .icone i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  
+  font-size: 12px;
+}
+
+#dashboard header .container .logotipo h1 {
+  color: var(--texto);
+  
+  font-size: 14px;
+  font-weight: var(--bold);
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+
+
+#dashboard header .container .perfil {
+  display: flex;
+}
+
+#dashboard header .container .perfil .nome { 
+  display: flex;
+  align-items: center;
+
+  margin-left: 10px;
+}
+
+
+#dashboard header .container .perfil .avatar {
+  position: relative;
+
+  width: 35px;
+  height: 35px;
+  
+  background-color: var(--bg);
+  border-radius: 6px;
+}
+
+#dashboard header .container .perfil .avatar h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  color: var(--principal);
+  
+  font-size: 14px;
+  font-weight: var(--bold);
+  text-transform: capitalize;
+  letter-spacing: .5px;
+}
+
+#dashboard header .container .perfil .nome h1 {
+  margin-right: 40px;
+
+  color: var(--texto);
+
+  font-size: 13px;
+  font-weight: var(--semi-bold);
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+}
+
+#dashboard header .container .perfil .nome i {
+  color: var(--principal);
+  font-size: 18px;
+}
+
+
+
+/* Main */
+
+#dashboard main {
+  grid-column: 2/3;
+
+  padding-top: calc(60px + 40px);
+}
+
+
+/* Topo */
+
+#dashboard main .topo {
+  position: relative;
+  
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 15px;
+
+  border-bottom: solid 2px #E7EDF8;
+}
+
+#dashboard main .topo h1 {
+  font-size: 23px;
+  font-weight: var(--bold);
+}
+
+#dashboard main .topo .filtro {
+  display: flex;
+}
+
+#dashboard main .topo .filtro a {
+  position: relative;
+  
+  margin: 0px 20px;
+  padding-top: 6.5px;
+
+  font-size: 18px;
+  font-weight: var(--semi-bold);
+}
+
+#dashboard main .topo .filtro a.selecionado {
+  color: var(--principal);
+  font-weight: var(--bold);
+}
+
+#dashboard main .topo .filtro a.selecionado::after {
+  content: "...";
+
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: block;
+  
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+
+/* Hero */
+
+#dashboard main .hero {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr 165px;
+  grid-gap: 10px;
+
+  margin: 20px 0 40px;
+}
+
+#dashboard main .hero form.pesquisa {
+  position: relative; 
+}
+
+
+#dashboard main .hero form.pesquisa input {
+  margin: 0;
+  padding: 20px;
+  
+  width: 100%;
+
+  border-radius: 6px;
+}
+
+#dashboard main .hero form.pesquisa button {
+  position: absolute;
+  top: 50%;
+  right: 1px;
+  transform: translateY(-50%);
+
+  width: 25px;
+  height: 25px;
+
+  background-color: white;
+}
+
+#dashboard main .hero .pesquisa i {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+
+  background-color: white;
+  color: var(--principal);
+
+  font-size: 18px;
+}
+
+#dashboard main .hero .adicionar {
+  display: flex;
+
+
+  padding: 15px;
+
+  background-color: var(--principal);
+  color: white;
+  
+  border-radius: 6px;
+}
+
+#dashboard main .hero .adicionar .icone {
+  position: relative;
+
+  width: 30px;
+  height: 30px;
+
+  border: 3px solid #F2F6FF;
+  border-radius: 50%;
+}
+
+#dashboard main .hero .adicionar .icone i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  font-size: 13px;
+}
+
+#dashboard main .hero .adicionar h2 {
+  margin-left: 8px;
+  padding-top: 8px;
+
+  font-size: 15px;
+  font-weight: var(--bold);
+
+  text-transform: uppercase;
+}
+
+
+/* Cards */
+.mobile-title {
+  font-size: 1.5rem;
+  display: none;
+}
+
+#dashboard main .cards .card {
+  position: relative;
+  margin-bottom: 15px;
+  
+  background-color: white;
+  border-radius: 6px;  
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, .05);
+}
+
+
+#dashboard main .cards .card .bolinha{
+  position: absolute;
+  top: 36px;
+  left: -5px;
+
+  width: 10px;
+  height: 10px;
+
+  background-color: var(--error);
+  border-radius: 50%;
+  
+  z-index: 1;
+}
+
+#dashboard main .cards .card .bolinha-amarela{
+  background-color: var(--alert)!important;
+}
+
+
+/* Header */
+
+#dashboard main .cards .card .header {
+  position: relative;
+
+  display: flex;
+
+  padding: 25px 20px;
+}
+
+#dashboard main .cards .card .header a.check {
+  margin-right: 20px;
+  
+  height: 30px;
+  width: 30px;
+  
+  border: solid 1.5px var(--sub);
+  border-radius: 50%;
+  
+  cursor: pointer;
+}
+
+#dashboard main .cards .card .header h1 {
+  position: absolute;
+  top: 50%;
+  left: 70px;
+  transform: translateY(-50%);
+  
+  font-size: 18px;
+  font-weight: var(--semi-bold);
+}
+
+#dashboard main .cards .card .header a.seta {
+  position: absolute;
+
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  
+  font-size: 14px;
+  color: var(--principal);
+}
+
+
+/* Descrição */
+
+#dashboard main .cards .card p {
+  padding: 20px;
+
+  font-size: 14px;
+
+  background-color: #F2F6FF;
+  border-top: solid 1.2px var(--sub);
+
+  word-wrap: break-word;
+}
+
+
+/* Footer */
+
+#dashboard main .cards .card footer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  padding: 20px;
+
+  border-top: solid 1.2px var(--sub);
+}
+
+#dashboard main .cards .card footer .data-hora{
+  display: flex;
+}
+
+#dashboard main .cards .card footer .data,
+#dashboard main .cards .card footer .hora { 
+  display: flex;
+  margin-right: 10px;
+  padding: 10px;
+  background-color: #F2F6FF;
+  border-radius: 6px;
+}
+
+#dashboard .data-hora i,
+#dashboard .data-hora img {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+#dashboard main .cards .card footer .data-hora span {
+
+  font-size: 13px;
+  font-weight: var(--semi-bold);
+}
+
+#dashboard main .cards .card footer .hora img { 
+  margin-right: 5px;
+  width: 13px;
+  height: 13px;
+  opacity: .7;
+}
+
+#dashboard main .cards .card footer .opcoes {
+  position: absolute;
+  display: flex;
+
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+
+  font-size: .875rem;
+}
+
+#dashboard main .cards .card footer .opcoes a {
+  margin: 0 5px;
+  color: var(--principal);
+}
+
+#dashboard main .cards .card footer .opcoes .editar {
+  padding-top: 1px;
+}
+
+
+
+
+/* POP-UP */
+#pop-up {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  background-color: var(--principal);
+  color: white;
+
+  width: 100%;
+  height: 100vh;
+}
+
+#pop-up form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+#pop-up form h1,
+#pop-up form div.input-titulo,
+#pop-up form div.input-descricao,
+#pop-up form div.input-data-hora {
+  grid-column: 1/3
+}
+
+#pop-up form div.input-data-hora {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+#pop-up form h1 {
+  margin-bottom: 10px;
+
+  font-size: 25px;
+  font-weight: var(--black);
+  
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .2px;
+}
+
+#pop-up form label {
+  font-weight: var(--bold);
+  line-height: 32px;
+  letter-spacing: .2px;
+}
+
+#pop-up form input,
+#pop-up form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border-color: var(--sub);  
+}
+
+#pop-up form textarea {
+  color: var(--texto);
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+
+  border-radius: 6px;
+  outline: none;
+}
+
+#pop-up form a {
+  align-self: end;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 150px;
+  height: 40px;
+  
+  margin-top: 10px;
+
+  background-color: #ffffff22;
+  color: white;
+
+  font-size: 15px;
+
+  border-radius: 6px;
+  transition: 400ms;
+}
+
+#pop-up form a:hover {
+  background-color: white;
+  color: var(--principal);
+}
+
+#pop-up form button {
+  width: 150px;
+  height: 40px;
+
+  margin-top: 10px;
+  
+  background-color: white;
+  color: var(--principal);
+
+  font-size: 15px;
+  font-weight: var(--bold);
+
+  border-radius: 6px;
+
+  justify-self: end;
+
+  transition: 400ms;
+}
+
+#pop-up form button:hover {
+  color: white;
+  background-color: var(--principal);
+  
+  border: solid 1px white;
+}
+
+
+@media (max-width: 500px) {
+  #pop-up {
+    padding: 10px;
+  }
+  
+
+  #pop-up form div.input-data-hora {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* JavaScript */
+
+/* Pop-up */
+.hide {
+  display: none;
+}
+
+
+/* Cards */
+.js #dashboard main .cards .js-card dd,
+.js #dashboard main .cards .js-card i.setas {
+  display: none;
+}
+
+.js #dashboard main .cards .js-card dd.ativo,
+.js #dashboard main .cards .js-card i.setas.ativo {
+  display: block;
+}
+
+.js #dashboard main .cards .js-card dd.ativo {
+  display: block;
+  animation: slideDown .8s forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
+  }
+}
+
+#dashboard main .cards .card.checked {
+  opacity: 0.5;
+}
+
+#dashboard main .cards .card .header .check.checked {
+  background-color: var(--sub)!important;
+}
+
+#dashboard main .cards .card .header .check.checked i {
+  margin-top: 1.5px;
+  display: block;
+  padding: 8px 7px;
+  font-size: 14px;
+  color: white;
+}
+
+#dashboard main .cards .card .header a.check i {
+  display: none;
+}
+
+.no-task {
+  font-weight: var(--regular);
+  font-size: 18px;
+  margin-bottom: 2rem;
+}
+
+
+
+@media (max-width: 600px) {
+  .perfil .avatar,
+  .perfil .nome h1 {
+    display: none;
+  }
+
+  #dashboard,
+  #dashboard header {
+    grid-template-columns: 15px 1fr 15px;
+  }
+
+  #dashboard main .topo {
+    display: none;
+  }
+
+  
+
+  #dashboard main .hero {
+    grid-template-columns: 1fr 60px;
+    margin-top: 0;
+  }
+
+  #dashboard main .hero .adicionar h2 {
+    display: none;
+  }
+
+  .mobile-title {
+    display: block;
+  }
+
+}
+
+@media (max-width: 375px) {
+  .data-hora i,
+  .data-hora img {
+    display: none;
+  }
+}
+/* Botão de alternância de tema */
+.theme-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  z-index: 1000;
+}
+
+/* Estilos do modo escuro */
+.dark-mode {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+}
+
+.dark-mode header {
+  background-color: #121212 !important;
+  border-color: #333 !important;
+}
+
+.dark-mode .card {
+  background-color: #1e1e1e !important;
+  border-color: #333 !important;
+}
+
+.dark-mode .container {
+  background-color: #121212; /* Cor de fundo para o container */
+}
+
+.dark-mode .right {
+  background-color: #1e1e1e; /* Cor de fundo para a div à direita */
+}
+
+.dark-mode input {
+  background-color: #333; /* Cor de fundo dos inputs */
+  color: #fff; /* Cor do texto dos inputs */
+  border: 1px solid #555; /* Borda dos inputs */
+}
+
+.dark-mode .erro {
+  background-color: rgba(233, 63, 102, 0.1); /* Alterar o fundo da mensagem de erro para uma tonalidade mais escura */
+  border: 1px solid var(--error);
+}
+
+/* Se você quiser ajustar as cores dos botões também */
+.dark-mode .botoes button {
+  background-color: #1e1e1e; /* Cor de fundo para o botão no modo escuro */
+  color: white; /* Cor do texto do botão */
+}
+.dark-mode .submit button {
+  background-color: #1e1e1e; /* Cor de fundo para o botão no modo escuro */
+  color: white; /* Cor do texto do botão */
+}
+
+.dark-mode .botoes a {
+  background-color: #333; /* Cor de fundo do link no modo escuro */
+  color: #ffffff; /* Cor do texto do link */
+}
+.dark-mode .theme-button i.fa-sun-o {
+  color: white; /* Cor do ícone do sol no modo escuro */
+}
+
+/* Estilo para o ícone de pesquisa no modo escuro */
+.dark-mode #dashboard main .hero .pesquisa i {
+  background-color: #333;
+}
+
+.dark-mode #dashboard main .hero form.pesquisa button {
+  background-color: #333;
+}
+.dark-mode #dashboard main .cards .card p {
+  border-color: #1e1e1e;
+  background-color: #333;
+}
+.dark-mode #dashboard main .cards .card footer {
+  border-color: #1e1e1e !important;
+}
+
+.dark-mode #dashboard main .cards .card footer .data {
+  background-color: #333;
+}
+.dark-mode #dashboard main .cards .card footer .hora{
+  background-color: #333;
+}

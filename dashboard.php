@@ -97,7 +97,7 @@ if (isset($_GET['busca'])) {
           <div class="icone">
             <i class="fa fa-check fa-lg fa-fw" aria-hidden="true"></i>
           </div>
-          <h1>Task Manager</h1>
+          <h1>Tasc.io</h1>
         </a>
         <div class="perfil">
           <div class="avatar">

@@ -124,7 +124,6 @@ input:focus {
 #login .left {
   background: url(../img/bg-login.jpg) no-repeat left;
   background-size: cover;
-
   border-radius: 8px 0px 0px 8px;
 }
 

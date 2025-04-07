@@ -25,7 +25,7 @@
       <div class="right">       
         <div class="form" data-form="login">           
           <form action="./php/db/login.php" method="POST">
-            <h1>Bem-vindo ao<span>Task Manager!</span></h1>
+            <h1>Bem-vindo ao<span>Tasc.io</span></h1>
             <button id="theme-toggle" class="theme-button" type="button">
               <i class="fa fa-moon-o"></i>
             </button>
